@@ -5,8 +5,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Django and React!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.textStyle}>Django and React!</Text>
+      <Text>Hello World</Text>
+     {/** <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -20,4 +21,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textStyle :{
+    fontSize:25,
+    color:"red",
+  }
 });
