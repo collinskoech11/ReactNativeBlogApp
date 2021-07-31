@@ -1,12 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {Card} from 'react-native-paper'
+//props is used to send data from one component to another 
 
-function Home() {
+function Home(props) {
     return (
-        <Card>        
+        <Card style={styles.cardStyle}>        
             <Text>
-                Hello from home 
+                Hello from {props.name}
             </Text>
         </Card>
 

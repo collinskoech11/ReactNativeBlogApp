@@ -7,7 +7,7 @@ import {Constants} from 'expo-constants';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Home/>
+      <Home name="coko"/>
       {/** <StatusBar style="auto" /> */}
     </View>
   );
