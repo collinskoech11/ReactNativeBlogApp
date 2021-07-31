@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
 import {Card} from 'react-native-paper'
 //props is used to send data from one component to another 
 
@@ -8,18 +8,25 @@ const mydata = [
     {id:2, title:"second Title", description:"second Description"},
     {id:3, title:"third Title", description:"third Description"},
 ]
-
+const renderData = (item) => {
+    return(
+        <Card style={styles.cardStyle}> 
+        <Text>{item.title}</Text>
+        <Text>{item.description}</Text>
+        </Card> 
+    )
+}
 function Home() {
-    const [name, setName] = useState("collinskoech11")
     return (
-        <Card style={styles.cardStyle}>  
-            <View>     
-                <Text style = {{fontSize:25}}>
-                    {name}
-                </Text>
-                <Button title="Change Text" onPress = {() => setName("This is Changed")}/>
-            </View> 
-        </Card>
+        
+            <FlatList
+                data = {mydata}
+                renderItem = {({item}) => {
+                    return renderData(item)
+                }}
+                keyExtractor = {item => item.id}
+            />
+        
 
     )
 }
