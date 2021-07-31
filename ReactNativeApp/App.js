@@ -8,8 +8,7 @@ import ClassA from  './screens/ClassA';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Home name="coko"/>
-      <ClassA email="collinskoechck34@gmail.com"/>
+      <Home/>
       {/** <StatusBar style="auto" /> */}
     </View>
   );

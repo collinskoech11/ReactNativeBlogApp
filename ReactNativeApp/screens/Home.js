@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {Card} from 'react-native-paper'
 //props is used to send data from one component to another 
 
-function Home(props) {
+function Home() {
+    const [name, setName] = useState("collinskoech11")
     return (
         <Card style={styles.cardStyle}>        
             <Text>
-                Hello from {props.name}
+                Hello from {name}
             </Text>
         </Card>
 
