@@ -1,12 +1,25 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, Text, View, FlatList} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert} from 'react-native';
 import {Card, FAB} from 'react-native-paper'
 //props is used to send data from one component to another 
 
 
 function Home() {
     const [data, setData] = useState([{title:"First title", description:"first description"}])
-    
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/articles/', {
+            method:"GET"
+        })
+
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => console.log("error"))
+
+    }, [])
+ 
     const renderData = (item) => {
         return(
             <Card style={styles.cardStyle}> 
