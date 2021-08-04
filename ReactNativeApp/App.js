@@ -5,18 +5,28 @@ import Home from './screens/Home';
 import {Constants} from 'expo-constants';
 import ClassA from  './screens/ClassA';
 import Create from './screens/Create';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/**<Home/>*/}
+      <Home/>
       {/** <StatusBar style="auto" /> */}
-      <Create/>
+      {/**<Create/>*/}
     </View>
   );
 }
 
-{/**Hello world */}
+export default() => {
+  return(
+    <NavigationContainer>
+      
+    </NavigationContainer>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

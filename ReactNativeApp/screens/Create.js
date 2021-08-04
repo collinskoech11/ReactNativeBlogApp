@@ -24,6 +24,7 @@ function Create() {
                 onChangeText = {text => setDescription(text)}
             />
             <Button
+                style = {{margin:10}}
                 icon = "pencil"
                 mode = "contained"
                 onPress = {() => console.log("Button Pressed")}
