@@ -5,26 +5,32 @@ import {Card, FAB} from 'react-native-paper'
 
 
 function Home() {
-    const [data, setData] = useState([{title:"First title", description:"first description"}])
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
+    const loadData = () => {
         fetch('http://127.0.0.1:8000/api/articles/', {
             method:"GET"
         })
 
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            setData(data)
+            setLoading(false)
         })
-        .catch(error => console.log("error"))
+        .catch(error => Alert.alert("error"))
+    }
 
+    useEffect(() => {
+        loadData();
     }, [])
  
     const renderData = (item) => {
         return(
             <Card style={styles.cardStyle}> 
+            <Text style = {{fontSize:25}}>{item.id}</Text>
             <Text style = {{fontSize:25}}>{item.title}</Text>
-            <Text style = {{fontSize:20}}>{item.description}</Text>
+
             </Card> 
         )
     }
@@ -35,6 +41,8 @@ function Home() {
                 renderItem = {({item}) => {
                     return renderData(item)
                 }}
+                onRefresh = {() => loadData()} 
+                refreshing = {loading}
                 keyExtractor = {item => `${item.id}`}
             />
             <FAB
