@@ -4,7 +4,7 @@ import {Card, FAB} from 'react-native-paper'
 //props is used to send data from one component to another 
 
 
-function Home() {
+function Home(props) {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -50,7 +50,7 @@ function Home() {
                 small = {false}
                 icon = "plus"
                 theme = {{colors:{accent:"blue"}}}
-                onPress = {() => console.log("Pressed")}
+                onPress = {() => props.navigation.navigate("Create")}
             />
         </View>
 

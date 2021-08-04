@@ -10,12 +10,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator()
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
-      <Home/>
-      {/** <StatusBar style="auto" /> */}
-      {/**<Create/>*/}
+     <Stack.Navigator>
+       <Stack.Screen name = "Home" component = {Home}/>
+       <Stack.Screen name = "Create" component = {Create}/>
+     </Stack.Navigator>
     </View>
   );
 }
@@ -23,7 +24,7 @@ export default function App() {
 export default() => {
   return(
     <NavigationContainer>
-      
+      <App/>
     </NavigationContainer>
   )
 }
