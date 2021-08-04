@@ -15,7 +15,7 @@ function Create() {
                 onChangeText = {text => setTitle(text)}
             />
             <TextInput
-                style = {styles.inputStyle}
+                style = {{margin:10}}
                 label = "Description"
                 value = {description}
                 mode = "outlined"
@@ -23,13 +23,18 @@ function Create() {
                 numberOfLines = {10}
                 onChangeText = {text => setDescription(text)}
             />
+            <Button
+                icon = "pencil"
+                mode = "contained"
+                onPress = {() => console.log("Button Pressed")}
+            >Insert Article</Button>
         </View>
     )
 }
 const styles = StyleSheet.create({
     inputStyle:{
         padding:10,
-        margin:10
+        marginTop:30
     }
 })
 export default Create
