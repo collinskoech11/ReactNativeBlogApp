@@ -21,6 +21,7 @@ function ArticleEdit(props) {
         .then(data => {
             console.log(data)
         })
+        //hello
     }
     return (
         <View>
