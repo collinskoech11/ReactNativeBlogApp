@@ -22,7 +22,7 @@ const myStyles = {
 function App() {
   return (
     <View style={styles.container}>
-     <Stack.Navigator>
+     <Stack.Navigator style={{position:'fixed',top:0,right:0}}>
        <Stack.Screen 
         name = "Home" 
         component = {Home}

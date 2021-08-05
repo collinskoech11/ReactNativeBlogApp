@@ -4,19 +4,19 @@ import {Button} from 'react-native-paper';
 
 function ArticleDetails(props) {
 
-    const {id, title, description} = props.route.params.data;
+    const data = props.route.params.data;
     return (
         <ScrollView>
         <View style = {styles.viewStyle}>
-         <Text>{id}</Text>
-         <Text style = {{fontSize:25}}>{title}</Text>
-         <Text style = {{fontSize:20, marginTop:10}}>{description}</Text>
+         <Text>{data.id}</Text>
+         <Text style = {{fontSize:25}}>{data.title}</Text>
+         <Text style = {{fontSize:20, marginTop:10}}>{data.description}</Text>
          <View style = {styles.btnStyle}>
              <Button
                 style = {styles.buttonStyle}
                 icon = "update"
                 mode = "contained"
-                onPress = {() => props.navigation.navigate("Edit")}
+                onPress = {() => props.navigation.navigate("Edit", {data:data})}
              >Edit</Button>
              <Button
                 style = {styles.buttonStyle}
