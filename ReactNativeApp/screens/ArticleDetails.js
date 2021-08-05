@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import {Button} from 'react-native-paper';
 
 function ArticleDetails(props) {
 
     const {id, title, description} = props.route.params.data;
     return (
+        <ScrollView>
         <View style = {styles.viewStyle}>
          <Text>{id}</Text>
          <Text style = {{fontSize:25}}>{title}</Text>
@@ -15,7 +16,7 @@ function ArticleDetails(props) {
                 style = {styles.buttonStyle}
                 icon = "update"
                 mode = "contained"
-                onPress = {() => console.log("pressed")}
+                onPress = {() => props.navigation.navigate("Edit")}
              >Edit</Button>
              <Button
                 style = {styles.buttonStyle}
@@ -25,6 +26,7 @@ function ArticleDetails(props) {
              >Delete</Button>
          </View>
         </View>
+        </ScrollView>
     )
 }
 
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
     btnStyle: {
         flexDirection:"row",
         justifyContent:"space-around",
+        padding: 10
     }
 })
 export default ArticleDetails

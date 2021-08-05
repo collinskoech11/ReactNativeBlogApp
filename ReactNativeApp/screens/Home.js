@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, Text, View, FlatList, Alert} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert, ScrollView} from 'react-native';
 import {Card, FAB} from 'react-native-paper'
 //props is used to send data from one component to another 
 
@@ -38,7 +38,10 @@ function Home(props) {
         )
     }
     return (
+        <>
+        
         <View>
+        <ScrollView>
             <FlatList
                 data = {data}
                 renderItem = {({item}) => {
@@ -48,14 +51,17 @@ function Home(props) {
                 refreshing = {loading}
                 keyExtractor = {item => `${item.id}`}
             />
-            <FAB
-                style = {styles.fab}
-                small = {false}
-                icon = "plus"
-                theme = {{colors:{accent:"blue"}}}
-                onPress = {() => props.navigation.navigate("Create")}
-            />
+        </ScrollView>
         </View>
+        
+         <FAB
+         style = {styles.fab}
+         small = {false}
+         icon = "plus"
+         theme = {{colors:{accent:"blue"}}}
+         onPress = {() => props.navigation.navigate("Create")}
+     />
+     </>
 
     )
 }

@@ -6,6 +6,7 @@ import {Constants} from 'expo-constants';
 import ClassA from  './screens/ClassA';
 import Create from './screens/Create';
 import ArticleDetails from './screens/ArticleDetails';
+import ArticleEdit from './screens/ArticleEdit';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -37,6 +38,11 @@ function App() {
         component = {ArticleDetails}
         options = {{...myStyles, title:"Details"}}
       />
+      <Stack.Screen 
+        name = "Edit" 
+        component = {ArticleEdit}
+        options = {{...myStyles, title:"Edit"}}
+      />
      </Stack.Navigator>
     </View>
   );
@@ -53,8 +59,7 @@ export default() => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eddfdf',
-    marginTop:20
+    backgroundColor: '#eddfdf'
   },
   textStyle :{
     fontSize:25,
