@@ -5,6 +5,7 @@ import Home from './screens/Home';
 import {Constants} from 'expo-constants';
 import ClassA from  './screens/ClassA';
 import Create from './screens/Create';
+import ArticleDetails from './screens/ArticleDetails';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -30,6 +31,11 @@ function App() {
         name = "Create" 
         component = {Create}
         options = {{...myStyles, title:"Create"}}
+      />
+      <Stack.Screen 
+        name = "ArticleDetails" 
+        component = {ArticleDetails}
+        options = {{...myStyles, title:"ArticleDetails"}}
       />
      </Stack.Navigator>
     </View>

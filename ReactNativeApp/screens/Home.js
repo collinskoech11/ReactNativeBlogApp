@@ -27,7 +27,7 @@ function Home(props) {
  
     const renderData = (item) => {
         return(
-            <Card style={styles.cardStyle}> 
+            <Card style={styles.cardStyle} onPress={props.navigation.navigate("ArticleDetails")}> 
                 <Text style = {{fontSize:25}}>{item.id}</Text>
                 <Text style = {{fontSize:25}}>{item.title}</Text>
             </Card> 
@@ -49,7 +49,7 @@ function Home(props) {
                 small = {false}
                 icon = "plus"
                 theme = {{colors:{accent:"blue"}}}
-                onPress = {() => props.navigation.navigate("Create")}
+                onPress = {() => props.navigation.navigate("Article")}
             />
         </View>
 

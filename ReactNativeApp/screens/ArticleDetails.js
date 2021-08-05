@@ -3,9 +3,9 @@ import { StyleSheet, Text, View} from 'react-native';
 
 function ArticleDetails() {
     return (
-        <div>
-            
-        </div>
+        <Text>
+          Hello from ArticleDetails  
+        </Text>
     )
 }
 
