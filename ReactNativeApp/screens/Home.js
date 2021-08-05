@@ -9,7 +9,7 @@ function Home(props) {
     const [loading, setLoading] = useState(true)
 
     const loadData = () => {
-        fetch('http://127.0.0.1:8000/api/articles/', {
+        fetch('http://192.168.0.104:8000/api/articles/', {
             method:"GET"
         })
 
@@ -28,9 +28,8 @@ function Home(props) {
     const renderData = (item) => {
         return(
             <Card style={styles.cardStyle}> 
-            <Text style = {{fontSize:25}}>{item.id}</Text>
-            <Text style = {{fontSize:25}}>{item.title}</Text>
-
+                <Text style = {{fontSize:25}}>{item.id}</Text>
+                <Text style = {{fontSize:25}}>{item.title}</Text>
             </Card> 
         )
     }

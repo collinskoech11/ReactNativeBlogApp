@@ -9,13 +9,28 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator()
+const myStyles = {
+  title:"Article list",
+  headerTintColor:"white",
+  headerStyle : {
+    backgroundColor:"blue"
+  }
+}
 
 function App() {
   return (
     <View style={styles.container}>
      <Stack.Navigator>
-       <Stack.Screen name = "Home" component = {Home}/>
-       <Stack.Screen name = "Create" component = {Create}/>
+       <Stack.Screen 
+        name = "Home" 
+        component = {Home}
+        options = {myStyles}
+       />
+       <Stack.Screen 
+        name = "Create" 
+        component = {Create}
+        options = {{...myStyles, title:"Create"}}
+      />
      </Stack.Navigator>
     </View>
   );
