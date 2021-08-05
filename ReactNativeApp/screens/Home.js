@@ -24,10 +24,14 @@ function Home(props) {
     useEffect(() => {
         loadData();
     }, [])
+
+    const clickedItem = (data) => {
+        props.navigation.navigate("Details", {data:data})
+    }
  
     const renderData = (item) => {
         return(
-            <Card style={styles.cardStyle} onPress={props.navigation.navigate("ArticleDetails")}> 
+            <Card style={styles.cardStyle} onPress={() => clickedItem(item) }> 
                 <Text style = {{fontSize:25}}>{item.id}</Text>
                 <Text style = {{fontSize:25}}>{item.title}</Text>
             </Card> 
@@ -49,7 +53,7 @@ function Home(props) {
                 small = {false}
                 icon = "plus"
                 theme = {{colors:{accent:"blue"}}}
-                onPress = {() => props.navigation.navigate("Article")}
+                onPress = {() => props.navigation.navigate("Create")}
             />
         </View>
 

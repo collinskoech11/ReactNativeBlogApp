@@ -33,9 +33,9 @@ function App() {
         options = {{...myStyles, title:"Create"}}
       />
       <Stack.Screen 
-        name = "ArticleDetails" 
+        name = "Details" 
         component = {ArticleDetails}
-        options = {{...myStyles, title:"ArticleDetails"}}
+        options = {{...myStyles, title:"Details"}}
       />
      </Stack.Navigator>
     </View>
