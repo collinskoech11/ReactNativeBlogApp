@@ -2,9 +2,24 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {TextInput, Button } from 'react-native-paper';
 
-function Create() {
+function Create(props) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+
+    const InsertData = () => {
+        fetch('http://192.168.0.104:8000/api/articles/', {
+            method:"POST",
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({title:title, description:description})
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            props.navigation.navigate("Home")
+        })
+        .catch(error => console.log("Error"))
+    }
     return (
         <View>
             <TextInput
@@ -27,7 +42,7 @@ function Create() {
                 style = {{margin:10}}
                 icon = "pencil"
                 mode = "contained"
-                onPress = {() => console.log("Button Pressed")}
+                onPress = {() => InsertData()}
             >Insert Article</Button>
         </View>
     )

@@ -1,10 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Alert} from 'react-native';
 import {Button} from 'react-native-paper';
 
 function ArticleDetails(props) {
 
     const data = props.route.params.data;
+
+    const deletedData = () => {
+        fetch(`http://192.168.0.104:8000/api/articles/${data.id}/`,{
+            method:"DELETE",
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+        .then(data => {
+           props.navigation.navigate("Home")
+        })
+        .catch(error => Alert.alert("Error", error))
+        //hello
+    }
     return (
         <ScrollView>
         <View style = {styles.viewStyle}>
@@ -22,7 +36,7 @@ function ArticleDetails(props) {
                 style = {styles.buttonStyle}
                 icon = "delete"
                 mode = "contained"
-                onPress = {() => console.log("pressed")}
+                onPress = {() => deletedData(data)}
              >Delete</Button>
          </View>
         </View>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Alert} from 'react-native';
 import {TextInput, Button } from 'react-native-paper';
 
 function ArticleEdit(props) {
@@ -19,8 +19,9 @@ function ArticleEdit(props) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+           props.navigation.navigate("Home", {data:data})
         })
+        .catch(error => Alert.alert("Error", error))
         //hello
     }
     return (
