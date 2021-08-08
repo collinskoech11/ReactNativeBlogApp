@@ -13,7 +13,7 @@ function ArticleEdit(props) {
         fetch(`http://192.168.0.104:8000/api/articles/${data.id}/`,{
             method:"PUT",
             headers: {
-                'Content-Type':'appication/json'
+                'Content-Type':'application/json'
             },
             body:JSON.stringify({title:title, description})
         })

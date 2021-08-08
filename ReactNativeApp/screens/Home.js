@@ -55,12 +55,12 @@ function Home(props) {
         </View>
         
          <FAB
-         style = {styles.fab}
-         small = {false}
-         icon = "plus"
-         theme = {{colors:{accent:"blue"}}}
-         onPress = {() => props.navigation.navigate("Create")}
-     />
+            style = {styles.fab}
+            small = {false}
+            icon = "plus"
+            theme = {{colors:{accent:"blue"}}}
+            onPress = {() => props.navigation.navigate("Create")}
+        />
      </>
 
     )
